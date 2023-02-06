@@ -23,12 +23,12 @@ try {
         $chat_id = $message->getChat()->getId();
         if ($chat_id == ADMIN_ID || $chat_id == SECONDADMIN_ID) {
             $users = $db->getAllUsers();
-            $msg = '';
+            $msg = '<pre>Users: ' . count($users) . '</pre>';
             foreach ($users as $user) {
                 $msg .= <<<EOF
+
 <b>Username: </b> <i>{$user['username']}</i>
-<b>First Name: </b> <i>{$user['first_name']}</i>
-<b>Last Name: </b> <i>{$user['last_name']}</i>
+
 <b>Attempts: </b> <i>{$user['attempts']}</i>
 -----------------------------------------------------------------\n
 EOF;
@@ -42,7 +42,7 @@ EOF;
         $id = $message->getChat()->getId();
 
         if (!$db->checkUser($id)) {
-            $bot->sendMessage('Ishlatishdan avval /start buyrug\'ini bering!');
+            $bot->sendMessage($id, 'Before using the bot you should press /start !');
         } else {
             $db->incrementAttempts($id);
             if (strlen($message->getText()) <= 2000) {

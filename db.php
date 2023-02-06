@@ -18,8 +18,8 @@ class DB
         $this->db->insert('users.json',
             [
                 'chat_id' => $message->getChat()->getId(),
-                'first_name' => $message->getChat()->getFirstName(),
-                'last_name' => $message->getChat()->getLastName(),
+//                'first_name' => $message->getChat()->getFirstName(),
+//                'last_name' => $message->getChat()->getLastName(),
                 'username' => $message->getChat()->getUsername(),
                 'attempts' => 1
             ]
