@@ -9,7 +9,7 @@ const ADMIN_ID = 778912691;
 const SECONDADMIN_ID = 2100460287;
 try {
     $bot = new \TelegramBot\Api\Client('6067817482:AAGoZ0axiOdCdPnA1epkXAW0qfeg3-SiJgw');
-    $client = OpenAI::client('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');
+    $client = OpenAI::client('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');
 
     $bot->command('start', function ($message) use ($bot, $db) {
         $chat_id = $message->getChat()->getId();
